@@ -50,11 +50,44 @@ print(s*5)    ## 字符串重复,只能*整数
 
 flag = False
 
-###### 查看变量类型
+###### 4.查看变量类型
 # type(变量)
 print(type(a))      #
 print(type(s))
 print(type(a<b))
 print(type(flag))
 
+    
+###### 5. 输入
+# name = input("请输入的你名字:")
+"""
+    input接收的所有数据都是字符串
+"""
 
+##### 6. 将字符串转化成数字
+# a = input("a:")
+# b = input("b:")
+# print("a+b=",int(a)+int(b))
+
+# print("a+b=",int(input("a:"))+int(input("b:")))
+
+
+###### 条件
+"""
+if的代码块以table符为界
+python的代码块都是以table为界
+"""
+money  = int(input())
+
+if money>1000:
+    print("a")
+    print("aa")
+elif money>500:
+    print("b")
+else:
+    if money>50:
+        print("50-500")
+    else:
+        print("<=50")
+    print("c")
+print("d")

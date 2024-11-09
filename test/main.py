@@ -16,8 +16,8 @@ print("hello world")
 ###### 三.类型
 ##### 1.整型 int类型
 
-a = 3;
-b = 4;
+a = 3
+b = 4
 
 # 基本运算
 print(a+b)
@@ -46,14 +46,15 @@ print(s+s1)   ## 字符串拼接
 print(s*5)    ## 字符串重复,只能*整数
 
 ##### 3.布尔类型 bool类型
-# true/false
+# True/False
 
-# flag = false
+flag = False
 
 ###### 查看变量类型
 # type(变量)
-print(type(a))
+print(type(a))      #
 print(type(s))
 print(type(a<b))
+print(type(flag))
 
 

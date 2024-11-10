@@ -13,7 +13,7 @@ print("hello world")
 
 """这是注释吗"""
 
-###### 三.变量类型
+###### 三.变量
 print("###### 三.变量与类型")
 print("## 整型")
 # 1.整型 int类型
@@ -287,10 +287,50 @@ s.isdecimal()
 ## 判断字符串是否是"数字"(大写小写阿拉伯等常见数字写法都能识别)
 s.isnumeric()
 
-# 查看关键字源代码
-str
+# 查看关键字源代码包含的方法
+str  ## 输入关键字,然后访问源代码
 
-##### 3.布尔类型 bool类型
+#  打印关键字能够执行的操作/函数
+## print(dir(关键字))
+print(dir(str))
+
+
+
+## python中直接就能用的函数叫内置函数
+print()
+print("###### 内置函数")
+# 计算字符串长度 len()
+print("# 计算字符串长度")
+s = "123"
+print(len(s))
+
+
+
+# 迭代器for循环
+## for 变量 in 可迭代对象
+print()
+print("# 迭代器for循环")
+s = "abcdefg"
+for c in s:
+    print(c)
+
+# in
+## in有两种用法
+## 1. 在for循环中表示属于可迭代对象
+## 2. 不在for中,用于判断字串是否在str中
+print("## 2. 不在for中的in,用于判断字串是否在str中")
+print("a" in "abcdef")
+
+
+
+
+
+
+
+
+
+
+###### 布尔类型 bool类型
 print()
 print("##### 3. 布尔类型")
 
@@ -396,8 +436,85 @@ python的代码块都是以table为界
 
 
 
+###### 七. 内置函数
 
 
+###### list类型(列表)
+print()
+print("###### list类型(列表)")
+# 列表的索引
+print("# 列表的索引")
+lst = ["zhangsan","lisi","wangwu","zhaoliu"]
+print(lst[3])   ## zhaoliu
+
+# 列表的切片
+## 列表切片的结果还是列表
+print()
+print("# 列表的切片")
+lst = ["zhangsan","lisi","wangwu","zhaoliu"]
+print(lst[::1]) ## ['zhangsan', 'lisi', 'wangwu', 'zhaoliu']    jk
+
+# 列表的追加
+print()
+print("# 列表的追加")
+lst = ["zhangsan"]
+lst.append("lisi")  ##['zhangsan', 'lisi']
+print(lst)
+
+# 列表的插入
+## insert(下标,元素),将元素插入到指定下标后面
+print()
+print("# 列表的插入")
+lst = ["zhangsan","wangwu"]
+lst.insert(1,"lisi")
+print(lst)      ## ['zhangsan', 'lisi', 'wangwu']
+
+
+# 列表的迭代新增
+print()
+print("# 列表的迭代新增")
+n = ["aaa","bbb",123,True]  ## list支持不同类型
+lst.extend(n)
+print(lst)      ## ['zhangsan', 'lisi', 'wangwu', 'aaa', 'bbb']
+
+# 列表的删除
+print()
+## remove("元素"),  删除指定元素
+print("## remove(\"元素\"),  删除指定元素")
+lst = ["zhangsan","lisi","wangwu","zhaoliu"]
+lst.remove("lisi")
+print(lst)      ## ['zhangsan', 'wangwu', 'zhaoliu']
+
+
+## pop(下标=-1) , 删除特定下标的元素,缺省值是-1,即最后一个元素
+## pop(), 删除末尾元素(像一个栈,后进先出)
+print()
+print("## pop()")
+lst = ["zhangsan","lisi","wangwu","zhaoliu"]
+ret = lst.pop()     ## 具备top()的功能,一步到位删除+获取返回值
+print(lst)   ## ['zhangsan', 'lisi', 'wangwu']
+
+print()
+print("## pop(下标) , 删除特定下标的元素")
+lst = ["zhangsan","lisi","wangwu","zhaoliu"]
+lst.pop(1)
+print(lst)   ## ['zhangsan', 'wangwu', 'zhaoliu']
+
+
+# 清空列表
+print()
+print("# 清空列表")
+lst = ["zhangsan","lisi","wangwu","zhaoliu"]
+lst.clear()
+print(lst)
+
+# 列表的方括号[]
+## []:和数组一样
+print()
+print("# 列表的方括号[] ")
+lst = ["zhangsan","lisi","wangwu","zhaoliu"]
+lst[1] = "lisiiiiiiii"
+print(lst)
 
 
 

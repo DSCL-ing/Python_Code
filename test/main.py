@@ -239,8 +239,56 @@ hobby: {n4}
 print(ss)
 
 
+# 判断字符串是否以特定字符串开头
+print()
+print("# 判断字符串是否以特定字符开头")
+s = "zhangsan"
+print("start is zhang?")
+if s.startswith("zhang"):
+    print(True)
+else:
+    print(False)
 
+## 判断字符串是否以特定字符串结尾
+print("end is san?")
+if s.endswith("san"):
+    print(True)
+else:
+    print(False)
 
+# 统计字符串中特定字串出现的次数
+print()
+print("# 统计字符串中特定字串出现的次数")
+s = "hello world!"
+print(s,"中出现o的次数:",s.count("o"))
+
+# 查找字串出现的位置
+print()
+print("# 查找字串出现的位置")
+s = "hello world!"
+print(s,"中第一个字母r出现的下标:",s.find("r"))
+print(s,"中第一个字母s出现的下标:",s.find("s"))     ## 找不到则返回-1
+## index与find功能一致,唯一区别是,index找不到时会报错
+# print(s,"中第一个字母s出现的下标:",s.index("s"))     ## 找不到则报错
+
+# 判断字符串是否由数字组成
+print()
+print("# 判断字符串是否由数字组成")
+s = "abc123"
+if s.isdigit():
+    print("是数字,可以计算")
+    print(int(s))
+else:
+    print("不是纯数字,输入有误")
+    
+## 判断字符串是否是小数
+s.isdecimal()
+
+## 判断字符串是否是"数字"(大写小写阿拉伯等常见数字写法都能识别)
+s.isnumeric()
+
+# 查看关键字源代码
+str
 
 ##### 3.布尔类型 bool类型
 print()

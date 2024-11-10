@@ -53,6 +53,8 @@ print(a<b)
 print(a==b)
 
 ##### 2.字符串 str类型
+print()
+print("##### 2.字符串 str类型")
 s = 'abc'
 s1 = "def"
 s2 = '''ghi 
@@ -62,21 +64,18 @@ print(s1)
 print(s2)
 
 ## 字符串的"+" 与 "*"运算
-print()
 print("## 字符串的\"+\" 与 \"*\"运算 ")
 print(s+s1)   ## 字符串拼接
 # print(s+1)  """ 字符串只能和字符串拼接 """
 print(s*5)    ## 字符串重复,只能*整数
 
 ## str(变量): 转字符串 
-print()
 print("## str(变量): 转字符串 ")
 print(str(True))
 print(str(123))
 print(str([1,2,3]))
     
 ## 字符串的索引(下标)
-print()
 print("## 字符串(字符数组)的索引")
 '''
 与C/C++等区别是, python下标负数就是倒过来索引
@@ -90,10 +89,164 @@ print(s[-1])
 print(s[-2])
 print(s[-3])
 print(s[-4])
+    
+#### 字符串的相关操作
+### 字符串是不可变对象,任何字符串操作都对原字符串不造成影响
+## 字符串切片
+print("## 字符串切片")
+print(s[1:2]) ## 前闭后开
+print(s[1:])  ## 1开始全部切(包含1)
+print(s[:3])  ## 切到3(不包含3)
+print(s[3:1]) ## 无效:默认情况是从左往右切
+### 上述情况是以默认步长1进行移动
+### 切片函数原型为: s[左:右:步长] 其中,步长不能为0
+s = "abcdefgh"
+print(s[1:5:2]) ## 含义在bcde中,每两步切一个:即bd
+print(s[0:8:3]) ## abcdefgh中,每3步切一个:  即adg
+print(s[3:0:-1])   ## 反向,从dcb中反向每一步都切,即dcb
+print(s[3::-1]) 
+
+## 字符串首字母大写
+print("## 字符串首字母大写")
+s = 'i am superman'
+print(s.capitalize())
+
+## 字符串全变成小写  --# lower识别不够全,没有upper强大(python共识使用upper来忽略大小写)
+print("## 字符串全变小写")
+s = 'i am superman'
+print(s.lower())
+print(s.casefold()) ## 也是全变小写,但功能比lower更强大,能够识别更多
+    
+## 字符串全大写
+print("## 字符串全大写")
+s = 'i am superman'
+print(s.upper())
+    
+## 字符串大小写互转
+print("## 大小写互转")
+s = 'I Am MonkeyKing!'
+print(s.swapcase())
+    
+## 句子/段落中的所有单词的首字母大写(英语标题)
+s = "i am super_monkey!"
+print(s.title())
+
+## 字符串居中 
+# center(格式化宽度,填充字符=" ")
+print()
+print("## 字符串居中")
+s = "exit"
+print(s.center(10))
+print(s.center(10,"*"))
+
+## 去掉字符串左右空白("空格","\t","\n"),俗称"脱衣",方便用户去掉多余的空格换行等
+print()
+print("## 去掉字符串左右空白")
+s = " \n  i am super_monkey!   \t "
+print(s.strip())
+# 指定去掉两边的内容
+s = "a_kkk_a"
+print(s.strip("a")) ## 输出: _kkk_
+
+## 字符串替换
+print()
+print("## 字符串替换")
+s = '我是超人'
+print(s.replace("超人","***"))
+# 去掉字符串中所有的空格
+print("# 去掉字符串中所有的空格")
+s = "a b c d e f g"
+print(s.replace(" ",""))
+
+## 字符串切割
+s = "zhangsan_lisi_wangwu_zhaoliu"
+l = s.split("_")   ## list类型
+print(l)    # ['zhangsan', 'lisi', 'wangwu', 'zhaoliu']
+
+
+## 列表组合成字符串
+print()
+print("## 列表组合成字符串")
+print("_".join(l)) # zhangsan_lisi_wangwu_zhaoliu 
+
+
+
+##  字符串格式化输出
+print()
+print("##  字符串格式化输出")
+# 按照以下格式输出字符串
+'''
+name: zhangsan
+age: 18
+job: 开车
+hobby: 吃饭
+'''
+
+## 假设以下数据是input的
+name = 'zhangsan'
+age = "18"
+job = '开车'
+hobby = "吃饭"
+
+## 1. 原始方案
+print("## 1. 原始方案")
+s = '''
+name: %s
+age: %s 
+job: %s
+hobby: %s
+''' %(name,age,job,hobby);
+print(s);
+
+## 2. python3.5以后支持的新方案
+print("## 2. python3.5以后支持的新方案")
+ss = f'''
+name: {name}
+age: {age}
+job: {job}
+hobby: {hobby}
+''' 
+print(ss)
+
+## 3. format()方式1,默认顺序
+print("## 3. format()方式1")
+ss = '''
+name: {}
+age: {}
+job: {}
+hobby: {}
+'''.format(name,age,job,hobby)
+print(ss)
+
+## 4. format() 方式2,自定义顺序
+print("## 4. format()方式2")
+ss = '''
+name: {3}
+age: {2}
+job: {1}
+hobby: {0}
+'''.format(hobby,job,age,name)
+print(ss)
+
+## 4. format 方式3, 别名
+print("## 5. format()方式3")
+ss = '''
+name: {n1}
+age: {n2}
+job: {n3}
+hobby: {n4}
+'''.format(n1 = name,n2=age,n3=job,n4=hobby)
+print(ss)
+
+
+
+
 
 ##### 3.布尔类型 bool类型
 print()
 print("##### 3. 布尔类型")
+
+
 
 # True/False
 flag = False
@@ -194,39 +347,6 @@ python的代码块都是以table为界
 #         break
 
 
-###### 七. 字符串格式化输出
-
-# 按照以下格式输出字符串
-'''
-name: zhangsan
-age: 18
-job: 开车
-hobby: 吃饭
-'''
-
-
-name = input("姓名:");
-age = input("年龄:");
-job = input("工作:");
-hobby = input("爱好:");
-
-##### 1. 原始方案
-# s = '''
-# name: %s
-# age: %s 
-# job: %s
-# hobby: %s
-# ''' %(name,age,job,hobby);
-# print(s);
-
-##### 2. python3.5以后支持的新方案
-ss = f'''
-name: {name}
-age: {age}
-job: {job}
-hobby: {hobby}
-''' 
-print(ss)
 
 
 

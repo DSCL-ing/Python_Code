@@ -560,3 +560,115 @@ for i in range(len(lst)):
     item = lst[i]
     if item.startswith("wang"):
         print(i)
+        
+
+
+
+## 元组tuple
+### 元组:只读列表,只能看
+### 与列表类似,列表是中括号,元组是小括号
+print()
+print("## 元组tuple:只读列表")
+### Exam
+print("### Exam")
+t = ("a","e","g")
+print(t)
+print("### 类型")
+print(type(t))
+print("### 切片")
+print(t[:2])
+# t[1] = 'b'        ## error:不支持修改
+
+### 元组的坑
+print()
+print("### 元组的坑: 一个元素的元组")
+### 1个元素的元组"不是元组"
+t = ("a")       ## 实际是括号的优先级用法
+print(t)
+t = (1)
+print(t)        ## 实际是括号的优先级用法
+
+### 正确用法
+print()
+print("### 一个元素的元组的正确写法")
+t = (1,)
+print(t)        ## (1,)
+
+
+### 元组元素值不可变,但元素指向的对象可变
+print()
+print("### 元组元素值不可变,但元素指向的对象可变")
+t = ("abc",123,[])
+print(t)
+t[2].append("hello")
+print(t)
+
+
+## 字典dict
+print()
+print("## 字典")
+### 类似C++中的map,存储键值对的数据结构
+### key的要求:字面值的数据类型: int,str,tuple,bool; 不可哈希的类型list,dict,set
+### 语法: {key1:value, key2:value, ...}
+
+d = {"apple":"苹果","banana":"香蕉","oringe":"橙子"}
+print(d)
+print(d["apple"])
+
+### 新增和修改都是[]
+print()
+print("## 新增")
+ret = d.setdefault("english","错误")    ## 新增+返回,但不能修改
+print(d)
+print(ret)
+d["english"] = "英语"   ## 没有则新增,有则修改
+print(d)
+ret = d.setdefault("english","正确")    ## 无效:{'apple': '苹果', 'banana': '香蕉', 'oringe': '橙子', 'english': '英语'}
+print(d)
+
+
+### 删除
+print()
+print("### 删除")
+ret = d.pop("english")
+print(ret)
+d.clear()   ## 全删
+print(d)
+
+
+### 查询
+print()
+print("## 查询")
+d = {"apple":"苹果","banana":"香蕉","oringe":"橙子"}
+print(d["apple"])       ## key不存在报错
+print(d.get("apple"))   ## key不存在返回空
+print(d.get("不存在","默认值"))     ## key不存在时,还可以返回默认值
+
+
+### 遍历
+print()
+print("### 字典的遍历")
+d = {"apple":"苹果","banana":"香蕉","oringe":"橙子"}
+print(1)
+for k in d:     ## 方式1:for遍历返回的是值是key
+    print(k)    ## key
+    print(d[k]) ## 获取value的方式
+    print(d.get(k)) ##或者
+    
+print()
+print("### 2. dict.keys()")
+print(d.keys())         ## dict_keys(['apple', 'banana', 'oringe'])
+print(type(d.keys()))   ## keys()返回的是dict_keys的类型:<class 'dict_keys'>
+for k in d.keys():
+    print(d[k])
+    
+print()
+print("### 3. dict.values()")
+for val in d.values():      ## 直接获取value
+    print(val)
+    
+print()
+print("### 4.dict.items()")
+print(d.items())
+for item in d.items():
+    print(item)

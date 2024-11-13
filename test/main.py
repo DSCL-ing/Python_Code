@@ -516,5 +516,47 @@ lst = ["zhangsan","lisi","wangwu","zhaoliu"]
 lst[1] = "lisiiiiiiii"
 print(lst)
 
+## 列表的逆置 reverse
+print()
+print("## 列表的逆置 reverse")
+lst = ["zhangsan","lisi","wangwu","zhaoliu"]
+lst.reverse()
+for i in range(len(lst)):
+    print(lst[i])
+
+## 列表排序
+print()
+print("## 列表排序")
+lst = [2,5,1,7,4]
+lst.sort()              ## 默认升序
+print(lst)
+lst.sort(reverse=True)  ## 逆序
+print(lst)
+
+## range
+### range(n)
+print()
+print("## range")
+for i in range(len(lst)):
+    print(lst[i])
+    print(i)
 
 
+### range(m,n)
+print()
+for i in range(5,10):
+    print(i)
+
+### range(m,n,s)
+print()
+for i in range(1,10,2):
+    print(i)
+    
+### 找人
+print()
+print("### 找人")
+lst = ["zhangsan","lisi","wangwu","zhaoliu"]
+for i in range(len(lst)):
+    item = lst[i]
+    if item.startswith("wang"):
+        print(i)

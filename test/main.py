@@ -603,6 +603,17 @@ print(t)
 t[2].append("hello")
 print(t)
 
+### 解构
+print()
+print("解构")
+a = 1,2
+print(a)    ## a是一个元组(1, 2)
+a,b = 1,2   ## 将元组(1,2)解构后分别赋给变量a和b
+a,b = (1,2) ## 将元组(1,2)解构后分别赋给变量a和b
+
+
+
+
 
 ## 字典dict
 print()
@@ -668,7 +679,9 @@ for val in d.values():      ## 直接获取value
     print(val)
     
 print()
-print("### 4.dict.items()")
+print("### 4.dict.items()") ## 返回字典的每一项<key-value>元组
 print(d.items())
 for item in d.items():
     print(item)
+    k,v = item      ## 解构
+    print(k,v)

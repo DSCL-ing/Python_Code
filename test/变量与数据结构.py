@@ -434,6 +434,25 @@ python的代码块都是以table为界
 #     else:
 #         break
 
+## while - else
+print()
+print("## while-else")
+i = 10
+while i<10:
+    print(i)
+    i-=1
+else:
+    print("OK!")    ##循环条件不满足时,就会执行else; 注意,else的条件是while条件运算返回False值
+    
+i = 10
+while i<10:
+    print(i)
+    if i == 7:
+        break   ## 如果是break,则不会执行else; 因为break是跳出循环,并不执行最后的while条件判断
+else:
+    print("OK!")
+
+### <-----break跳出的位置
 
 
 ###### 七. 内置函数
@@ -685,3 +704,163 @@ for item in d.items():
     print(item)
     k,v = item      ## 解构
     print(k,v)
+
+
+## set
+### 集合:
+### 特点:1.去重 2.无序(不能使用索引)
+print()
+print("### 集合")
+
+### 交并差
+s1 = {"a","b","c"}
+s2 = {"b","c","d"}
+#### 求s1与s2交集
+print()
+print(s1)
+print(s2)
+print("交集:",s1&s2)
+
+#### s1与s2并集
+print()
+print("并集",s1|s2)
+
+#### s1与s2差集
+print()
+print("差集",s1-s2)
+
+
+### 创建set集合
+print()
+print("创建set集合")
+s = set()
+print(type(s))
+print("创建dict字典")
+# d = {}    ## 默认是字典
+d = dict()
+print(type(d))
+
+### set删除:先删再加
+print()
+print("set删除")
+s = {
+    'a','b','c'
+}
+print("s:",s)
+s.remove("a")
+s.add("d")
+print(s)
+
+### 遍历
+print()
+print("遍历set")
+for item in s:
+    print(item)
+    
+
+
+## 地址/深浅拷贝
+print()
+print()
+print("地址/深浅拷贝")
+a = ["a","b","c"]
+b = a       ## 浅拷贝
+print(id(a))
+print(id(b))
+
+b = a.copy()    ## 假"深"拷贝
+print(id(a))
+print(id(b))
+
+b = a[:]        ## 假"深"拷贝(切片也是生成一个新对象)
+print(id(a))
+print(id(b))
+
+## 假"深"拷贝
+a.append([1,2,3])
+b = a.copy()
+print(a)
+print(b)
+a[3].append(4)
+print(a)
+print(b)
+
+
+print()
+print("真.深拷贝")
+import copy     ## 导入深拷贝模块
+b = copy.deepcopy(a)        ## 真.深拷贝
+a.pop()
+print(a)
+print(b)
+
+
+## Python中数据结构的统一删除方式" ,例一
+print()
+print("## Python中数据结构的统一删除方式")
+print("法一")
+lst = ["zhangsan","zhanglao","zhangwu","lisi"]
+i = len(lst)
+j = 0
+while(j<i):
+    if lst[j].startswith("zhang"):
+        lst.pop(j)
+        i-=1
+        j-=1    ## 让j保持不动
+    j+=1
+    
+print(lst)
+    
+print()
+print("法二")   ## 统一方式
+## 问题:没有迭代器缺陷,无法弥补迭代器失效的问题
+new_lst = list()
+for item in lst:
+    if item.startswith("zhang"):
+        new_lst+=item
+    
+for item in new_lst:
+    lst.remove(item)
+
+print(lst)
+
+print()
+print("法三")   ## 统一方式
+## 利用切片返回的拷贝对象的原理,对拷贝对象进行遍历(原对象删除后会导致遍历不到位,删除不完全;拷贝对象不删除只遍历,保证遍历到位)
+for item in lst[:]: 
+    lst.remove(item)    
+    
+
+## 删除,例二:字典
+d = {"apple":"苹果","banana":"香蕉","english":"英语"}
+
+## 错误示例:字典不允许在遍历过程中删除
+# for item in d.keys():
+#     d.pop(item) ## dictionary changed size during iteration
+
+lst = list(d.keys())    ## 保证字典遍历过程中大小不会被改变
+for item in lst:
+    d.pop(item)
+    
+
+
+
+## "is" 和 "=="
+print()
+print(" is 和 ==")
+a = [1,2,3]
+b = [1,2,3]
+print(a == b)   ## == 比较的是对象内容是否相等
+print(a is b)   ## is 比较的是对象的地址是否相等
+
+### 一般用is来判空(is用的不多,要么判空要么判地址)
+print()
+print("一般用is来判空")
+c = None
+if c is None:
+    print("c 是 空")
+else:
+    print("c 不是空")
+
+
+

@@ -1,5 +1,8 @@
 ## r模式
 
+
+## 编码:ascii,gbk,unicode,utf-8
+
 ### f为文件句柄(程序与文件互相连接的管子)
 ### 管道方式读,每次读文件指针都会向后移动
 f = open("./test.txt","r",encoding="utf-8") 

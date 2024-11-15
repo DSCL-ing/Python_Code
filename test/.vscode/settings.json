@@ -1,0 +1,5 @@
+{
+    "vscode-neovim.neovimInitVimPaths.linux": "\"C:\\Users\\chj\\init.vim\"",
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "C:\\Users\\chj\\.vimrc"
+}

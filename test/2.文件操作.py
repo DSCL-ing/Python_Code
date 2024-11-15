@@ -35,3 +35,5 @@ f = open("./test.txt","r",encoding="utf-8")
 ## 组合模式: "rb","wb","ab",一般用于处理各类文件的读写
 # f = open("b.txt",mode="b",encoding = "utf-8")   # ValueError: binary mode doesn't take an encoding argument
 f = open("b.txt",mode="b")
+
+## 还有r+,w+等,+就是扩展,r+就是r扩展读... 可读性很差,不推荐,基本的rwab都够用了

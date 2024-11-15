@@ -553,7 +553,8 @@ lst.sort(reverse=True)  ## 逆序
 print(lst)
 
 ## range
-### range(n)
+### range()用于表示一段范围,
+### range(n)    
 print()
 print("## range")
 for i in range(len(lst)):

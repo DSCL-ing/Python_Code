@@ -5,3 +5,4 @@ f = open("./test.txt","r",encoding="utf-8")
 
 ### read()  ## 默认读取全部内容
 print(f.read())
+

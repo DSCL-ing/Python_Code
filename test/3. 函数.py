@@ -76,7 +76,7 @@ def dynamic_key_func(**arg):
 dynamic_key_func(english="英语",chinese="中文")
 
 
-### 混合参数正确顺序: 位置参数 -> *args -> 默认值参数 -> **kwargs
+### 混合参数正确顺序: 位置参数 > *args > 默认值参数 > **kwargs
 #### 动态关键字+位置参数
 print()
 print("## 动态关键字+位置参数")

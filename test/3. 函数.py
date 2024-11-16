@@ -61,9 +61,26 @@ print("## 动态参数")
 ### 动态位置参数*
 print()
 print("## 动态位置参数")
-def dynamic_func(*arg):
+def dynamic_local_func(*arg):
     print(arg,":",type(arg))
 
-dynamic_func(1,2,3,"hello")
+dynamic_local_func(1,2,3,"hello")
 
 ### 动态接收关键字参数
+#### 动态关键字参数是一个字典
+print()
+print("## 动态关键字参数")
+def dynamic_key_func(**arg):
+    print(arg,":",type(arg))
+
+dynamic_key_func(english="英语",chinese="中文")
+
+
+### 混合参数正确顺序: 位置参数 -> *args -> 默认值参数 -> **kwargs
+#### 动态关键字+位置参数
+print()
+print("## 动态关键字+位置参数")
+def dynamic_key_func1(a,**arg): ## 和缺省参数同理,要放在动态关键字参数前面
+    print(a,arg,":",type(arg))  
+
+dynamic_key_func1(1,english="英语",chinese="中文")

@@ -84,3 +84,57 @@ def dynamic_key_func1(a,**arg): ## 和缺省参数同理,要放在动态关键�
     print(a,arg,":",type(arg))  
 
 dynamic_key_func1(1,english="英语",chinese="中文")
+
+
+## 数据结构打散传参操作
+def fun(*args):
+    return
+
+## 动态位置参数
+lst = ["zhangsan","lisi","wangwu"]
+fun(*lst)   ## 等效于: fun("zhangsan","list","wangwu")
+
+## 动态关键字参数同理
+def fun(**args):
+    return
+
+dic = {"name":"zhangsan","age":18}
+fun(**dic)
+
+
+## 作用域
+print()
+print("## 作用域")
+print(globals())    ## 打印全局作用域中的内容
+print(locals())     ## 打印当前作用域中的内容
+
+## 名称空间
+## 名称空间分为:全局名称空间(全局域),内置名称空间(Python自带,也属于全局名称空间),局部名称空间(函数等局部作用域)
+
+## 声明
+### global:声明全局变量
+a = 10
+def fun():
+    global a    ## 引入全局变量
+    a = a+1
+    print(a)
+
+fun()
+
+### nonlocal : 声明非局部变量(非全局变量,又非当前作用域变量,即介于全局与当前作用域之间的中间作用域,多层嵌套情况下使用)
+
+
+## 闭包:内层函数对外层函数的变量的使用
+### 作用1:可以让一个变量封锁起来,外界只能看到,但是无法修改
+### 作用2:使变量常驻内存,不被回收(原因:如果被回收,那么inner就无法正常调用了;要保证inner能够正常调用,被闭包的变量必须不能被回收)
+print()
+print("## 闭包")
+def fun():
+    a = 10          ## 外界无法访问这个变量
+    def inner():
+        print(a)    ## 内部函数可以访问
+        return a    ## 含可以返回他的值
+    return inner    ## 返回这个函数,让外界可以安全访问
+
+fn = fun()
+fn()    ## 函数外访问到了函数的局部变量

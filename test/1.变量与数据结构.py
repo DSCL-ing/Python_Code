@@ -638,7 +638,7 @@ a,b = (1,2) ## 将元组(1,2)解构后分别赋给变量a和b
 ## 字典dict
 print()
 print("## 字典")
-### 类似C++中的map,存储键值对的数据结构
+### 类似C++中的unorder_map(哈希),存储键值对的数据结构
 ### key的要求:字面值的数据类型: int,str,tuple,bool; 不可哈希的类型list,dict,set
 ### 语法: {key1:value, key2:value, ...}
 

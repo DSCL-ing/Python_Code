@@ -138,3 +138,33 @@ def fun():
 
 fn = fun()
 fn()    ## 函数外访问到了函数的局部变量
+
+
+## 装饰器
+
+### 原始写法
+# def add():
+    # print("add")
+# 
+# def wrapper(fn):    ## 记录的add函数的地址
+    # def inner():
+        # print("在fn前做某事")
+        # fn()
+        # print("在fn后做某事")
+    # return inner
+# 
+# add = wrapper(add)  ## add变量指向inner函数地址
+# add()
+
+
+### 语法糖写法
+def wrapper(fn):    ## 记录的add函数的地址
+    def inner():
+        print("在fn前做某事")
+        fn()
+        print("在fn后做某事")
+    return inner
+
+@wrapper    ## 简化了 add = wrapper(add) 这部分
+def add():
+    print("add")

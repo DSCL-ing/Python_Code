@@ -18,3 +18,13 @@ it.__next__()   ## 访问下一个元素
 ## 通过内置函数获取迭代器,和迭代
 it = iter(lst)
 next(it)    ## it指向下一个
+
+
+## 模拟for-each循环
+it = iter(lst)
+while True:
+    try:
+        obj = next(it)
+        print(obj)
+    except StopIteration:
+        break

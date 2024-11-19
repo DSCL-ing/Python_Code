@@ -15,6 +15,8 @@
 ### 3.返回生成器(只返回一次)
 ### 4.注:生成器函数刚启动时不可使用send,因为生成器函数只是返回生成器,还没开始执行(到第一个yield)
 
+### 语法用例
+print()
 def fun():
     print("yield1")
     a = yield "zhangsan"        ## yield1
@@ -32,6 +34,29 @@ print(ret)
 ret = gen.send("传给b的值")
 print(ret)
 ## ret = gen.send("") ## StopIteration
+
+
+## 实际举例
+## 需要大量的数据/空间,一次性加载出来太占内存,可以选择分批次加载/用完再取,很像迭代器的控制行为:即生成器
+def buy():
+    lst = []
+    i = 0
+    while i<50000:
+        lst.append(f"{i}")
+        if i%5 == 0:
+            yield lst
+            # lst = []    ## 清空
+            lst.clear()
+        i+=1
+
+gen = buy()
+lst = gen.__next__()
+print(lst)
+lst = gen.__next__()
+print(lst)
+lst = gen.__next__()
+print(lst)
+
 
 
 

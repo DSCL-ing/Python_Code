@@ -65,3 +65,43 @@ print()
 ### 什么推导式都有了,好像就差元组推导式,看起来也像元组推导式,但注意因为元组是不可变类型(不能修改),因此python中并不存在元组推导式
 l = (i for i in range(10))  
 print(l)    ## 生成器推导式 <generator object <genexpr> at 0x00000241FFD86110>
+
+
+## 取走生成器的数据
+### 通过遍历
+print()
+print("## 取走生成器的数据1")
+for i in l:
+    print(i)    
+## 走到这里时，生成器l已经走完了，之后就是空值
+
+### 通过数据结构取走
+print()
+print("## 取走生成器的数据2")
+l = (i for i in range(10))     ## 重新构造生成器
+print(set(l))
+
+# l = (i for i in range(10))     ## 重新构造生成器
+# print(dict(l))                 ## 字典是键值对的哈希表，需要键值对
+
+l = (i for i in range(10))     ## 重新构造生成器
+print(tuple(l))
+
+l = (i for i in range(10))     ## 重新构造生成器
+print(list(l))
+
+
+## 题目
+print()
+print("## 生成器用例题")
+def func():
+    print(111)
+    yield 222
+
+g = func()              ## 创建生成器
+g1 = (i for i in g)     ## 创建生成器
+g2 = (i for i in g1)    ## 创建生成器
+
+print(list(g))          ## list取走g中数据
+print(list(g1))         ## g1准备取走g中数据，但是g为空了，所以也为空
+print(list(g2))         ## g2同g1

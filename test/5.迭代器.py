@@ -28,3 +28,4 @@ while True:
         print(obj)
     except StopIteration:
         break
+

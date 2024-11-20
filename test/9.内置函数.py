@@ -95,3 +95,42 @@ print()
 lst1 = [1,2,3]
 lst2 = ['a','b','c']
 print(dict(zip(lst1,lst2)))     ## {1: 'a', 2: 'b', 3: 'c'}
+
+
+## reversed（列表) ,列表翻转
+print()
+lst = [1,2,3]
+r = reversed(lst)
+print(list(r))
+
+
+
+
+## slice    切片 s[1:4:2] 的代码版，优点是能固定切片方案
+ss = slice(1,4,2)
+s1 = "123456789"
+s2 = "abcdefghi"
+print(s1[ss])
+print(s2[ss])
+
+## ord(c)/chr(c)    字符转字符代码/字符代码转字符
+print(ord('中'))    ## 20013
+print(chr(20013))   ## 中
+
+### chr可以用来生成验证码 
+import random
+n = random.randint(65,93)
+print(chr(n))
+
+
+## repr：返回字符串的字符串原始字面值(转义字符也会原封不动输出),并且是标准字符串 --- 太抽象了
+## r字符串: 返回字符串的字符串原始字面值(转义字符也会原封不动输出)
+
+
+## format
+a = 48
+print(format(a,"08d"))  ## 00000048
+
+b = 5
+print(format(b,"b"))    ## 101
+print(format(b,"08b"))  ## 00000101

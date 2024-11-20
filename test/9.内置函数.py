@@ -32,10 +32,10 @@ s= "[1,2,3]"
 print(eval(s))
 
 ## exec
-print()
-s = "a = 100"
-exec(s)     ## 没有返回值
-print(a)
+# print()
+# s = "a = 100"
+# exec(s)     ## 没有返回值
+# print(a)
 
 
 ## 进制
@@ -134,3 +134,23 @@ print(format(a,"08d"))  ## 00000048
 b = 5
 print(format(b,"b"))    ## 101
 print(format(b,"08b"))  ## 00000101
+
+
+## sorted   排序
+### 声明：  sorted(Iterable(可迭代对象)，key(排序规则),reverse=False)
+lst = [4,6,2,7,1,7]
+print(sorted(lst))
+print(sorted(lst,reverse=True))
+
+lst = ["zhangsan","lisi","wangwu"]
+def rule(name):
+    return len(name)    ## 根据名字的长度进行排序
+print(sorted(lst,key=rule))
+print(sorted(lst,key = lambda name: len(name) ))
+
+## filter(fn，Iterable) ,将可迭代对象的元素，根据函数规则 筛选出相应的元素，返回结果的迭代对象
+lst = [4,6,2,7,1,7,33,3,9]
+it = filter(lambda x:x%3==0, lst )
+print(list(it))
+
+
